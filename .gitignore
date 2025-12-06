@@ -1,0 +1,46 @@
+# Archive (local only - batch results, backups, demo frames)
+archive/
+
+# LaTeX report folder (separate submission to professor)
+occlude_to_dock_report/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Output directories
+outputs/
+
+# Calibration artifacts (keep scripts, ignore large data)
+calibration/*.pkl
+calibration/*.npz
+
+# Isaac Sim artifacts
+*.usd
+*.usda
+*.usdc
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

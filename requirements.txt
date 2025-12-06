@@ -1,0 +1,29 @@
+# Isaac Sim Integration
+# Note: Isaac Sim must be installed separately from NVIDIA
+# This file lists additional Python dependencies
+
+# Vision & ML
+transformers>=4.30.0
+torch>=2.0.0
+torchvision>=0.15.0
+pillow>=9.5.0
+timm>=0.9.0
+
+# Robotics & Math
+numpy>=1.24.0
+scipy>=1.10.0
+opencv-python>=4.7.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Configuration
+pyyaml>=6.0
+
+# Utilities
+tqdm>=4.65.0
+scikit-learn>=1.2.0
+
+# Optional: For better performance
+# nvidia-cudnn-cu11>=8.9.0

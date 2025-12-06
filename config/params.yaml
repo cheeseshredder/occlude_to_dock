@@ -1,0 +1,93 @@
+# Main System Parameters
+# All configurable parameters for the Occlude-to-Dock system
+
+# Scene Configuration
+scene:
+  room_size: [6.0, 6.0]  # meters [width, height]
+  grid_resolution: 0.05  # 5cm cells → 120×120 grid
+  
+# Robot Configuration
+robot:
+  max_linear_vel: 0.3    # m/s
+  max_angular_vel: 0.5   # rad/s
+  base_radius: 0.18      # meters (TurtleBot approximate)
+
+# Camera Configuration
+camera:
+  resolution: [640, 480]
+  fov: 60                # degrees
+  max_range: 10.0        # meters
+  position: [0.2, 0.0, 0.3]  # [x, y, z] relative to robot base
+  orientation: [0, 0, 0]     # [roll, pitch, yaw] in radians
+
+# Perception
+perception:
+  model_name: "IDEA-Research/grounding-dino-base"
+  text_prompts:
+    charger: "a wall-mounted electrical charging dock"
+    plant: "a potted plant"
+    distractor: "a rectangular box object"
+  detection_frequency: 10  # Hz
+  box_threshold: 0.25
+  text_threshold: 0.20
+  
+# Semantic Grid
+semantic_grid:
+  num_classes: 4  # charger, plant, distractor, other
+  prior_alpha: 1.0
+  prior_beta: 1.0
+  prior_eta: [0.25, 0.25, 0.25, 0.25]  # Uniform prior
+  free_space_weight: 0.1  # Weight for ray-traced free space updates
+  
+# Planning (POMDP)
+planning:
+  action_space: ['rotate', 'move', 'rescan', 'approach', 'dock']
+  reward_dock: 100.0
+  reward_step: -1.0
+  lambda_risk: 0.5
+  lambda_ig: 2.0
+  max_rescans: 3
+  
+  # Confidence thresholds
+  high_confidence_threshold: 0.8
+  medium_confidence_threshold: 0.5
+  low_confidence_threshold: 0.3
+  
+  # Entropy thresholds
+  high_entropy_threshold: 1.0
+  low_entropy_threshold: 0.5
+
+# Control (DWA)
+control:
+  dwa_horizon: 1.0        # seconds
+  dt: 0.1                 # timestep for trajectory simulation
+  v_resolution: 0.05      # m/s
+  w_resolution: 0.1       # rad/s
+  inflation_radius: 0.3   # meters for obstacle inflation
+
+# Docking
+docking:
+  approach_speed: 0.1     # m/s
+  position_tolerance: 0.15  # meters
+  yaw_tolerance: 0.2      # radians
+  max_attempts: 50        # ~5 seconds at 10Hz
+
+# Evaluation
+evaluation:
+  max_episode_time: 90    # seconds
+  success_position_tol: 0.15
+  success_yaw_tol: 0.2
+  num_bins_ece: 15
+  
+# Viewpoint Selection
+viewpoint:
+  num_candidates: 5       # Top-K belief cells to consider
+  viewpoint_distance: 2.0 # meters from target
+  num_angles: 8           # Cardinal + diagonal directions
+  
+# Class ID Mapping
+class_mapping:
+  charger: 0
+  plant: 1
+  distractor: 2
+  other: 3
