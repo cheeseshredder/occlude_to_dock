@@ -21,9 +21,6 @@ ENV/
 *.swp
 *.swo
 
-# Output directories
-outputs/
-
 # Calibration artifacts (keep scripts, ignore large data)
 calibration/*.pkl
 calibration/*.npz

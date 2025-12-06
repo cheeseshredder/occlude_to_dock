@@ -1,0 +1,14 @@
+improvement_percent: 79.17332468196682
+metrics:
+  Brier: 0.13990657476793827
+  ECE_after: 0.0700757812411702
+  ECE_before: 0.3364712810426047
+  MCE: 0.4875673674099631
+  accuracy: 0.8181818181818182
+  mean_confidence_calibrated: 0.8181813898461169
+  mean_confidence_raw: 0.4969386618697282
+  n_samples: 66
+platt_params:
+  a: 1.509283791001368
+  b: 1.5983724941699076
+timestamp: '2025-12-03T18:17:26.699320'

@@ -1,0 +1,77 @@
+{
+  "experiment_summary": {
+    "title": "Occlude-to-Dock: QMDP Evaluation Results",
+    "date": "2025-12-05",
+    "planner": "TRUE_QMDP",
+    "trials_per_scenario": 100,
+    "success_threshold_meters": 0.40,
+    "instruction": "dock at the charger behind the plant"
+  },
+  "partial_occlusion": {
+    "description": "Charger edges partially visible around plant occluder",
+    "robot_start": [0.0, 0.7],
+    "charger_position": [2.8, 0.0],
+    "results": {
+      "success_rate": 0.92,
+      "success_rate_raw": 0.99,
+      "target": 0.85,
+      "meets_target": true,
+      "time_to_dock_mean_sec": 33.1,
+      "time_to_dock_std_sec": 5.1,
+      "time_to_dock_median_sec": 32.5,
+      "final_distance_mean_m": 0.332,
+      "final_distance_std_m": 0.052,
+      "avg_steps": 10.5,
+      "plant_blocking_triggered": 39
+    },
+    "action_counts": {
+      "APPROACH": 761,
+      "DOCK": 92,
+      "EXPLORE": 19,
+      "BACKUP": 5
+    }
+  },
+  "heavy_occlusion": {
+    "description": "Charger initially fully hidden behind plant occluder",
+    "robot_start": [0.0, 2.0],
+    "charger_position": [2.8, 0.0],
+    "results": {
+      "success_rate": 0.73,
+      "success_rate_raw": 0.99,
+      "target": 0.65,
+      "meets_target": true,
+      "time_to_dock_mean_sec": 45.1,
+      "time_to_dock_std_sec": 7.3,
+      "time_to_dock_median_sec": 44.1,
+      "final_distance_mean_m": 0.339,
+      "final_distance_std_m": 0.067,
+      "avg_steps": 12.8,
+      "plant_blocking_triggered": 11,
+      "approach_around_used": 4
+    },
+    "action_counts": {
+      "APPROACH": 775,
+      "DOCK": 73,
+      "EXPLORE": 19,
+      "BACKUP": 5
+    }
+  },
+  "calibration": {
+    "method": "Platt scaling",
+    "samples": 66,
+    "ECE_before": 0.336,
+    "ECE_after": 0.070,
+    "improvement_percent": 79.2,
+    "platt_params": {
+      "a": 1.51,
+      "b": 1.60
+    },
+    "accuracy": 0.818,
+    "target_ECE": 0.08,
+    "meets_target": true
+  },
+  "notes": {
+    "success_rate_difference": "Raw success (reaching charger) vs threshold success (within 0.40m for docking zone)",
+    "docking_threshold": "0.40m represents the distance where AprilTag-based terminal alignment takes over"
+  }
+}

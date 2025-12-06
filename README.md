@@ -122,7 +122,7 @@ $$\text{ECE} = \sum_{m=1}^M \frac{n_m}{\sum_j n_j} \left| \hat{a}_m - \hat{c}_m 
 ### Setup
 
 ```bash
-git clone https://github.com/yourusername/occlude_to_dock.git
+git clone https://github.com/cheeseshredder/occlude_to_dock.git
 cd occlude_to_dock
 pip install -r requirements.txt
 ```
